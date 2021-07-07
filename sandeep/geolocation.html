@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Geolocation</title>
+</head>
+
+<body>
+    <h1>Lets trace location</h1>
+    <button onclick="getLocation()">Get Location</button>
+    <div id="output"></div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    
+    <script>
+        var x=document.getElementById('output');
+        function getLocation() {
+            if (navigator.geolocation) {
+                x.innerHTML = "Geolocation is supported by this browser.";
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else { 
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+</body>
+</html>
